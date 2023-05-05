@@ -31,4 +31,10 @@ public class Audio extends ElementoMultimediale implements Riproducibile {
 		setDurata(durata);
 	}
 
+	public Audio(String tipoFile, String Titolo, int durata, int volume) {
+		super(tipoFile, Titolo, true);
+		setDurata(durata);
+		setVolume(volume);
+	}
+
 }

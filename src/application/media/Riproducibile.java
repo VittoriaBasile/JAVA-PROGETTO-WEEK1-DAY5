@@ -13,10 +13,10 @@ public interface Riproducibile {
 	}
 
 	public static String Volume(int volume) {
-		String barraVolume = "!";
+		String barraVolume = "";
 
 		for (int i = 0; i < volume; i++) {
-			barraVolume += barraVolume;
+			barraVolume += "!";
 		}
 		return barraVolume;
 	}
@@ -26,6 +26,16 @@ public interface Riproducibile {
 		for (int i = 0; i < durata; i++) {
 
 			System.out.println(titolo + " " + Volume(volume));
+
+		}
+
+	}
+
+	public static void play(String titolo, int durata, int volume, String luminosità) {
+
+		for (int i = 0; i < durata; i++) {
+
+			System.out.println(titolo + " " + Volume(volume) + "" + luminosità);
 
 		}
 

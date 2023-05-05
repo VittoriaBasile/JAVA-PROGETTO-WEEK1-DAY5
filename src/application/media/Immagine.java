@@ -1,10 +1,12 @@
 package application.media;
 
 public class Immagine extends ElementoMultimediale implements Mostrabile {
-	private int luminosità = 5;
+	private int luminosità = 0;
 
 	public Immagine(String tipoFile, String Titolo) {
 		super(tipoFile, Titolo, false);
+		setLuminosità(luminosità);
+
 	}
 
 	public Immagine(String tipoFile, String Titolo, int luminosità) {
