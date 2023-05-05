@@ -1,15 +1,27 @@
 package application.media;
 
 public interface Mostrabile {
-	static public void aumentaLumenosità() {
+
+	static public void aumentaLuminosità() {
 
 	}
 
-	static public void diminuisciLumenosità() {
+	static public void diminuisciLuminosità() {
 
 	}
 
-	static public void show() {
+	public static String Luminosità(int luminosità) {
+		String barraLuminosità = "*";
+
+		for (int i = 0; i < luminosità; i++) {
+			barraLuminosità += barraLuminosità;
+		}
+		return barraLuminosità;
+	}
+
+	public static void show(String titolo, int luminosità) {
+
+		System.out.println(titolo + " " + Luminosità(luminosità));
 
 	}
 
