@@ -1,8 +1,8 @@
 package application.media;
 
 public abstract class ElementoMultimediale {
-	private String tipoFile;
-	private String Titolo;
+	public String tipoFile;
+	public String Titolo;
 	private boolean riproducibile;
 
 	public ElementoMultimediale(String tipoFile, String Titolo, boolean riproducibile) {
@@ -33,6 +33,11 @@ public abstract class ElementoMultimediale {
 
 	public void setRiproducibile(boolean riproducibile) {
 		this.riproducibile = riproducibile;
+	}
+
+	@Override
+	public String toString() {
+		return (this.Titolo + this.tipoFile);
 	}
 
 }
