@@ -47,7 +47,7 @@ public class Main {
 				switch (elemento[0]) {
 
 				case "img": {
-					System.out.println("Inserisci la luminosità dell' immagine");
+					System.out.println("Inserisci la luminosità dell' immagine (digita un numero)");
 					int luminosità = scanner.nextInt();
 					scanner.nextLine();
 
@@ -59,15 +59,15 @@ public class Main {
 					break;
 				}
 				case "video": {
-					System.out.println("Inserisci la durata del video");
+					System.out.println("Inserisci la durata del video (digita un numero)");
 					int durata = scanner.nextInt();
 					scanner.nextLine();
 
-					System.out.println("Inserisci la luminosità del video");
+					System.out.println("Inserisci la luminosità del video (digita un numero)");
 					int luminosità = scanner.nextInt();
 					scanner.nextLine();
 
-					System.out.println("Inserisci il volume del video");
+					System.out.println("Inserisci il volume del video (digita un numero)");
 					int volume = scanner.nextInt();
 					scanner.nextLine();
 
@@ -79,11 +79,11 @@ public class Main {
 					break;
 				}
 				case "audio": {
-					System.out.println("Inserisci la durata dell' audio");
+					System.out.println("Inserisci la durata dell' audio (digita un numero)");
 					int durata = scanner.nextInt();
 					scanner.nextLine();
 
-					System.out.println("Inserisci il volume dell' audio");
+					System.out.println("Inserisci il volume dell' audio (digita un numero)");
 					int volume = scanner.nextInt();
 					scanner.nextLine();
 					Audio audio = new Audio(tipoFile, titoloFile, durata, volume);
