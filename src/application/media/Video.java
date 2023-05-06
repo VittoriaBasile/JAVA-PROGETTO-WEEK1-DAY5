@@ -8,27 +8,37 @@ public class Video extends ElementoMultimediale implements Mostrabile, Riproduci
 	private int luminosità = 5;
 
 	public int getVolume() {
+
 		return volume;
 	}
 
 	public void setVolume(int volume) {
-		this.volume = volume;
+		if (volume >= 0) {
+			this.volume = volume;
+		}
 	}
 
 	public int getDurata() {
+
 		return durata;
 	}
 
 	public void setDurata(int durata) {
-		this.durata = durata;
+		if (durata >= 0) {
+			this.durata = durata;
+		}
 	}
 
 	public int getLuminosità() {
+
 		return luminosità;
 	}
 
 	public void setLuminosità(int luminosità) {
-		this.luminosità = luminosità;
+		if (luminosità >= 0) {
+			this.luminosità = luminosità;
+
+		}
 	}
 
 	public Video(String tipoFile, String Titolo) {

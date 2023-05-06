@@ -24,6 +24,7 @@ public class Main {
 				Mostrabile.show(video1.getLuminosità()));
 		ElementoMultimediale[] media = inserisciElementiMultimediali();
 		selezionaIlFile(media);
+
 	}
 
 	public static ElementoMultimediale[] inserisciElementiMultimediali() {
@@ -125,24 +126,99 @@ public class Main {
 				if (index >= 0 && index < lista.length) {
 					ElementoMultimediale elemento = lista[index];
 					System.out.println("Hai selezionato il file: " + elemento.getTitolo());
-
 					if (elemento instanceof Mostrabile || elemento instanceof Riproducibile
 							|| elemento instanceof Mostrabile && elemento instanceof Riproducibile) {
 						switch (elemento.getClass().getSimpleName()) {
 						case "Immagine": {
 							Immagine immagine = (Immagine) elemento;
 							Mostrabile.show(immagine.getTitolo(), immagine.getLuminosità());
+							System.out
+									.println("vuoi aumentare o diminuire la luminosità?(digita aumentare o diminuire)");
+							String input2 = scanner.next();
+							if (input2.contains("aumentare")) {
+								System.out.println("Di quanto vuoi aumentare la luminosità?(digita un numero)");
+								int valoreLuminosità = scanner.nextInt() + immagine.getLuminosità();
+								int luminosità = Mostrabile.aumentaLuminosità(valoreLuminosità);
+								Mostrabile.show(immagine.getTitolo(), luminosità);
+
+							} else {
+								System.out.println("Di quanto vuoi diminuire la luminosità?(digita un numero)");
+								int valoreLuminosità = immagine.getLuminosità() - scanner.nextInt();
+								int luminosità = Mostrabile.aumentaLuminosità(valoreLuminosità);
+								Mostrabile.show(immagine.getTitolo(), luminosità);
+
+							}
+							scanner.nextLine();
+
 							break;
 						}
 						case "Audio": {
 							Audio audio = (Audio) elemento;
 							Riproducibile.play(audio.getTitolo(), audio.getDurata(), audio.getVolume());
+							System.out.println("vuoi aumentare o diminuire il volume?(digita aumentare o diminuire)");
+							String input2 = scanner.next();
+							if (input2.contains("aumentare")) {
+								System.out.println("Di quanto vuoi aumentare la luminosità?(digita un numero)");
+								int valoreVolume = scanner.nextInt() + audio.getVolume();
+								int volume = Riproducibile.alzaVolume(valoreVolume);
+								Riproducibile.play(audio.getTitolo(), audio.getDurata(), volume);
+
+							} else {
+								System.out.println("Di quanto vuoi diminuire la luminosità?(digita un numero)");
+								int valoreVolume = audio.getVolume() - scanner.nextInt();
+								int volume = Riproducibile.abbassaVolume(valoreVolume);
+								Riproducibile.play(audio.getTitolo(), audio.getDurata(), volume);
+
+							}
+							scanner.nextLine();
 							break;
 						}
 						case "Video": {
 							Video video = (Video) elemento;
 							Riproducibile.play(video.getTitolo(), video.getDurata(), video.getVolume(),
 									Mostrabile.show(video.getLuminosità()));
+							System.out.println("vuoi modificare luminosità o volume?(digita luminosità o volume)");
+							String risposta = scanner.next();
+							if (risposta.contains("luminosità")) {
+								System.out.println(
+										"vuoi aumentare o diminuire la luminosità?(digita aumentare o diminuire)");
+								String input2 = scanner.next();
+								if (input2.contains("aumentare")) {
+									System.out.println("Di quanto vuoi aumentare la luminosità?(digita un numero)");
+									int valoreLuminosità = scanner.nextInt() + video.getLuminosità();
+									int luminosità = Mostrabile.aumentaLuminosità(valoreLuminosità);
+									Riproducibile.play(video.getTitolo(), video.getDurata(), video.getVolume(),
+											Mostrabile.show(luminosità));
+
+								} else {
+									System.out.println("Di quanto vuoi diminuire la luminosità?(digita un numero)");
+									int valoreLuminosità = video.getLuminosità() - scanner.nextInt();
+									int luminosità = Mostrabile.aumentaLuminosità(valoreLuminosità);
+									Riproducibile.play(video.getTitolo(), video.getDurata(), video.getVolume(),
+											Mostrabile.show(luminosità));
+
+								}
+							} else {
+								System.out
+										.println("vuoi aumentare o diminuire il volume?(digita aumentare o diminuire)");
+								String input2 = scanner.next();
+								if (input2.contains("aumentare")) {
+									System.out.println("Di quanto vuoi aumentare la luminosità?(digita un numero)");
+									int valoreVolume = scanner.nextInt() + video.getVolume();
+									int volume = Riproducibile.alzaVolume(valoreVolume);
+									Riproducibile.play(video.getTitolo(), video.getDurata(), volume,
+											Mostrabile.show(video.getLuminosità()));
+
+								} else {
+									System.out.println("Di quanto vuoi diminuire la luminosità?(digita un numero)");
+									int valoreVolume = video.getVolume() - scanner.nextInt();
+									int volume = Riproducibile.abbassaVolume(valoreVolume);
+									Riproducibile.play(video.getTitolo(), video.getDurata(), volume,
+											Mostrabile.show(video.getLuminosità()));
+								}
+
+							}
+							scanner.nextLine();
 
 							break;
 

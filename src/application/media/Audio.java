@@ -15,11 +15,14 @@ public class Audio extends ElementoMultimediale implements Riproducibile {
 	}
 
 	public int getDurata() {
+
 		return durata;
 	}
 
 	public void setDurata(int durata) {
-		this.durata = durata;
+		if (durata >= 0) {
+			this.durata = durata;
+		}
 	}
 
 	public Audio(String tipoFile, String Titolo) {

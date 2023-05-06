@@ -1,14 +1,25 @@
 package application.media;
 
 public interface Riproducibile {
+	int volume = 0;
+
+	public static int getVolume() {
+
+		return volume;
+	}
+
+	public static int setVolume(int volume) {
+
+		return volume;
+	}
 
 	public static int alzaVolume(int volume) {
-		return volume++;
+		return setVolume(volume);
 
 	}
 
 	public static int abbassaVolume(int volume) {
-		return volume--;
+		return setVolume(volume);
 
 	}
 

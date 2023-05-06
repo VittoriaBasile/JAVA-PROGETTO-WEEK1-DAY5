@@ -1,13 +1,26 @@
 package application.media;
 
 public interface Mostrabile {
+	int luminosità = 0;
 
-	static public void aumentaLuminosità() {
+	public static int getLuminosità() {
+
+		return luminosità;
+	}
+
+	public static int setLuminosità(int luminosità) {
+
+		return luminosità;
+	}
+
+	static public int aumentaLuminosità(int luminosità) {
+
+		return setLuminosità(luminosità);
 
 	}
 
-	static public void diminuisciLuminosità() {
-
+	static public int diminuisciLuminosità(int luminosità) {
+		return setLuminosità(luminosità);
 	}
 
 	public static String Luminosità(int luminosità) {

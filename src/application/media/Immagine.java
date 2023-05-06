@@ -1,11 +1,11 @@
 package application.media;
 
 public class Immagine extends ElementoMultimediale implements Mostrabile {
-	private int luminosità = 0;
+	public int luminosità = 0;
 
 	public Immagine(String tipoFile, String Titolo) {
 		super(tipoFile, Titolo, false);
-		setLuminosità(luminosità);
+		setLuminosità(getLuminosità());
 
 	}
 
@@ -15,11 +15,16 @@ public class Immagine extends ElementoMultimediale implements Mostrabile {
 	}
 
 	public int getLuminosità() {
+
 		return luminosità;
 	}
 
-	public void setLuminosità(int luminosità) {
-		this.luminosità = luminosità;
+	public int setLuminosità(int luminosità) {
+		if (luminosità >= 0) {
+			this.luminosità = luminosità;
+
+		}
+		return luminosità;
 	}
 
 }
