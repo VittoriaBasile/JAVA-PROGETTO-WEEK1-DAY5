@@ -12,16 +12,20 @@ import application.media.Video;
 public class Main {
 
 	public static void main(String[] args) {
-		Immagine img = new Immagine("img", "foto", 2);
-
-		Mostrabile.show(img.getTitolo(), img.getLuminosità());
-
-		Audio audio1 = new Audio("audio", "vocale", 2);
-		Riproducibile.play(audio1.getTitolo(), audio1.getDurata(), audio1.getVolume());
-
-		Video video1 = new Video("video", "videooo", 4, 3);
-		Riproducibile.play(video1.getTitolo(), video1.getDurata(), video1.getVolume(),
-				Mostrabile.show(video1.getLuminosità()));
+		// PROVE DEL FUNZIONAMENTO DELLE CLASSI E DELLE INTERFACCE
+		/*
+		 * Immagine img = new Immagine("img", "foto", 2);
+		 * 
+		 * Mostrabile.show(img.getTitolo(), img.getLuminosità());
+		 * 
+		 * Audio audio1 = new Audio("audio", "vocale", 2);
+		 * Riproducibile.play(audio1.getTitolo(), audio1.getDurata(),
+		 * audio1.getVolume());
+		 * 
+		 * Video video1 = new Video("video", "videooo", 4, 3);
+		 * Riproducibile.play(video1.getTitolo(), video1.getDurata(),
+		 * video1.getVolume(), Mostrabile.show(video1.getLuminosità()));
+		 */
 		ElementoMultimediale[] media = inserisciElementiMultimediali();
 		selezionaIlFile(media);
 
@@ -128,7 +132,8 @@ public class Main {
 					System.out.println("Hai selezionato il file: " + elemento.getTitolo());
 					if (elemento instanceof Mostrabile || elemento instanceof Riproducibile
 							|| elemento instanceof Mostrabile && elemento instanceof Riproducibile) {
-						switch (elemento.getClass().getSimpleName()) {
+						switch (elemento.getClass().getSimpleName()) {// METODO TROVATO SU INTERNET PER LA STAMPA DEL
+																		// CASO DI DEFAULF DELLO SWITCH
 						case "Immagine": {
 							Immagine immagine = (Immagine) elemento;
 							Mostrabile.show(immagine.getTitolo(), immagine.getLuminosità());
