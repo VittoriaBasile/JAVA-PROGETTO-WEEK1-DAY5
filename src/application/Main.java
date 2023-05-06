@@ -33,7 +33,7 @@ public class Main {
 
 		Scanner scanner = new Scanner(System.in);
 		for (int i = 0; i < 5; i++) {
-			System.out.println("Inserisci il tipo di file");
+			System.out.println("Inserisci un tipo di file tra img, video e audio");
 			String tipoFile = scanner.nextLine();
 			System.out.println("Inserisci il titolo del file");
 			String titoloFile = scanner.nextLine();
@@ -45,6 +45,7 @@ public class Main {
 					System.out.println("Inserisci la luminosità dell' immagine");
 					int luminosità = scanner.nextInt();
 					scanner.nextLine();
+
 					Immagine img = new Immagine(tipoFile, titoloFile, luminosità);
 
 					media[counter] = img;
@@ -124,12 +125,43 @@ public class Main {
 				if (index >= 0 && index < lista.length) {
 					ElementoMultimediale elemento = lista[index];
 					System.out.println("Hai selezionato il file: " + elemento.getTitolo());
-				} else {
-					System.out.println("Selezione non valida.");
-				}
-			}
-		}
 
+					if (elemento instanceof Mostrabile || elemento instanceof Riproducibile
+							|| elemento instanceof Mostrabile && elemento instanceof Riproducibile) {
+						switch (elemento.getClass().getSimpleName()) {
+						case "Immagine": {
+							Immagine immagine = (Immagine) elemento;
+							Mostrabile.show(immagine.getTitolo(), immagine.getLuminosità());
+							break;
+						}
+						case "Audio": {
+							Audio audio = (Audio) elemento;
+							Riproducibile.play(audio.getTitolo(), audio.getDurata(), audio.getVolume());
+							break;
+						}
+						case "Video": {
+							Video video = (Video) elemento;
+							Riproducibile.play(video.getTitolo(), video.getDurata(), video.getVolume(),
+									Mostrabile.show(video.getLuminosità()));
+
+							break;
+
+						}
+						default:
+							throw new IllegalArgumentException(
+									"Unexpected value: " + elemento.getClass().getSimpleName());
+						}
+					} else {
+						System.out.println("Selezione non valida.");
+					}
+
+				}
+
+			}
+
+		}
 		scanner.close();
+
 	}
+
 }
