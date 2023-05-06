@@ -35,9 +35,4 @@ public abstract class ElementoMultimediale {
 		this.riproducibile = riproducibile;
 	}
 
-	@Override
-	public String toString() {
-		return (this.Titolo + this.tipoFile);
-	}
-
 }

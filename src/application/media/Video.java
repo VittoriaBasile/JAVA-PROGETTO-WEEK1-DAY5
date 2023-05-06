@@ -51,4 +51,11 @@ public class Video extends ElementoMultimediale implements Mostrabile, Riproduci
 		setLuminosità(luminosità);
 	}
 
+	public Video(String tipoFile, String Titolo, int durata, int luminosità, int volume) {
+		super(tipoFile, Titolo, true);
+		setDurata(durata);
+		setLuminosità(luminosità);
+		setVolume(volume);
+	}
+
 }
